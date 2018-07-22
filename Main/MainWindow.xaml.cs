@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Main.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Util;
+using Util.Model;
+using Util.Model.Driver;
 
 namespace Main
 {
@@ -23,6 +27,7 @@ namespace Main
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new WorkerViewModel(new Worker(Category.Broker, new Redis(), "TestProject", "TestName", "TestGroup"));
         }
     }
 }
