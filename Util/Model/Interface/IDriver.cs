@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Util.Model.Interface
 {
@@ -7,9 +8,9 @@ namespace Util.Model.Interface
         ISettings Setting { get; }
 
         void Dispose();
-        Task<bool> Connect();
-        Task Disconnect();
-        Task<bool> DoWork();
-        Task<bool> IsConnected();
+        Task<bool> Connect(CancellationTokenSource ct);
+        Task Disconnect(CancellationTokenSource ct);
+        Task<int> DoWork(CancellationTokenSource ct);
+        Task<bool> IsConnected(CancellationTokenSource ct);
     }
 }

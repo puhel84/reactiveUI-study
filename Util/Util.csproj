@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ReactiveUI" Version="8.3.1" />
-    <PackageReference Include="S7netplus" Version="0.3.0" />
+    <PackageReference Include="MvvmCross" Version="6.1.2" />
+    <PackageReference Include="MvvmCross.Plugin.Messenger" Version="6.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿namespace Util.Model
+﻿namespace Util.Model.Interface
 {
     public interface ISettings
     {

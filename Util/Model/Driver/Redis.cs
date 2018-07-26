@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Splat;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Util.Model.Interface;
 
@@ -17,39 +20,44 @@ namespace Util.Model.Driver
     {
         #region Properties
         public ISettings Setting { get; }
+        [JsonIgnore]
+        public IConfig Config { get; }
         #endregion
 
         #region Constructors
-        public Redis()
+        public Redis(ISettings setting = null, IConfig config = null)
         {
-            Setting = new SettingsForRedis();
+            Setting = setting ?? new SettingsForRedis();
+            Config = config ?? Locator.Current.GetService<IConfig>();
         }
         #endregion
 
         #region Public Methods
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
 
-        public Task<bool> Connect()
+        public async Task<bool> Connect(CancellationTokenSource ct)
         {
-            throw new NotImplementedException();
+            await Task.Delay(2000);
+            return true;
         }
 
-        public Task Disconnect()
+        public async Task Disconnect(CancellationTokenSource ct)
         {
-            throw new NotImplementedException();
+            await Task.Delay(2000);
         }
 
-        public Task<bool> DoWork()
+        public async Task<int> DoWork(CancellationTokenSource ct)
         {
-            throw new NotImplementedException();
+            await Task.Delay(2000);
+            return 0;
         }
 
-        public Task<bool> IsConnected()
+        public async Task<bool> IsConnected(CancellationTokenSource ct)
         {
-            throw new NotImplementedException();
+            await Task.Delay(2000);
+            return true;
         }
         #endregion
     }

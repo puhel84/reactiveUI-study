@@ -9,5 +9,9 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Grid />
+    <StackPanel>
+        <Button x:Name="btnConnect" Command="{Binding ConnectAsync}">CONNECT</Button>
+        <Button x:Name="btnDiscConnect"
+                Command="{Binding DisconnectAsync}">DISCONNECT</Button>
+    </StackPanel>
 </Window>

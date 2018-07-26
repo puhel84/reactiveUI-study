@@ -1,4 +1,6 @@
 ﻿using Main.ViewModels;
+using ReactiveUI;
+using Splat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,7 @@ using System.Windows.Shapes;
 using Util;
 using Util.Model;
 using Util.Model.Driver;
+using Util.Model.Interface;
 
 namespace Main
 {
@@ -24,10 +27,14 @@ namespace Main
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Worker ViewModel { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new WorkerViewModel(new Worker(Category.Broker, new Redis(), "TestProject", "TestName", "TestGroup"));
+            Locator.CurrentMutable.RegisterConstant<IConfig>(new Config());
+            ViewModel = new Worker(Category.Broker, new Redis(), "TEST-PROJECT", "TEST-NAME", "TEST-GROUP");
+            DataContext = ViewModel;
         }
     }
 }
